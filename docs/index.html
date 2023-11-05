@@ -18,8 +18,8 @@
 <body>
   <div id="main"></div>
   <script type="module">
-    import init from "/./assets/dioxus/Treman.js";
-    init("/./assets/dioxus/Treman_bg.wasm").then(wasm => {
+    import init from "/./assets/dioxus/treman-rs.js";
+    init("/./assets/dioxus/treman-rs_bg.wasm").then(wasm => {
       if (wasm.__wbindgen_start == undefined) {
         wasm.main();
       }

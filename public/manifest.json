@@ -23,7 +23,7 @@
   "id": "/",
   "display": "standalone",
   "display_override": ["window-control-overlay", "standalone"],
-  "scope": "https:/strosel.github.io/treman-rs",
+  "scope": "/treman-rs",
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "short_name": "Treman",

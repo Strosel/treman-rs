@@ -45,7 +45,7 @@
           src = ./.; # The original, unfiltered source
           filter = path: type:
             (lib.hasSuffix "\.html" path) ||
-            (lib.hasSuffix "\.scss" path) ||
+            (lib.hasSuffix "\.css" path) ||
             # Example of a folder for images, icons, etc
             (lib.hasInfix "assets/" path) ||
             (lib.hasInfix "public/" path) ||

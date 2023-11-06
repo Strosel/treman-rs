@@ -46,6 +46,7 @@
           filter = path: type:
             (lib.hasSuffix "\.html" path) ||
             (lib.hasSuffix "\.css" path) ||
+            (lib.hasSuffix "\.js" path) ||
             # Example of a folder for images, icons, etc
             (lib.hasInfix "assets/" path) ||
             (lib.hasInfix "public/" path) ||

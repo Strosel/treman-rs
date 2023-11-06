@@ -20,7 +20,6 @@
     }
   ],
   "start_url": "/treman-rs/",
-  "id": "/",
   "display": "standalone",
   "display_override": ["window-control-overlay", "standalone"],
   "scope": "/treman-rs/",

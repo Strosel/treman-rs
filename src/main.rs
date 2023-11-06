@@ -15,6 +15,7 @@ fn app(cx: Scope) -> Element {
             h1 { "🌗 Dioxus 🚀" }
             h3 { "Frontend that scales." }
             p { "Dioxus is a portable, performant, and ergonomic framework for building cross-platform user interfaces in Rust." }
+            p { "This is a change i made to force a recompile." }
         }
     ))
 }

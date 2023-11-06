@@ -13,7 +13,10 @@ var version = 'v1.0.0::';
 */
 var offlineFundamentals = [
   // add here the files you want to cache
-  'favicon.ico'
+  'favicon.ico',
+  'dice.woff2',
+  'dice.woff',
+  'dice.ttf'
 ];
 
 /* The install event fires when the service worker is first installed.

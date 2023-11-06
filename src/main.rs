@@ -9,13 +9,20 @@ fn main() {
 }
 
 fn app(cx: Scope) -> Element {
-    cx.render(rsx! (
+    //TODO get dice state
+    let d = (5,6);
+    render! {
         div {
-            style: "text-align: center;",
-            h1 { "🌗 Dioxus 🚀" }
-            h3 { "Frontend that scales." }
-            p { "Dioxus is a portable, performant, and ergonomic framework for building cross-platform user interfaces in Rust." }
-            p { "This is a change i made to force a recompile. v0.0.9" }
+            class: "flex justify-center items-center text-center",
+            div {
+                class: "flex flex-col p-2 w-[100vmin] h-screen",
+                h1 { class: "dice text-center", "{d.0}{d.1}"}
+                p { class: "grow", "rules" }
+                button { 
+                    class: "bg-indigo-500 rounded-md box-border w-full text-white",
+                    "Rulla" 
+                }
+            }
         }
-    ))
+    }
 }

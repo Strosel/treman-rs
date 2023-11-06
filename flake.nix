@@ -79,7 +79,7 @@
         # Build the actual crate itself, reusing the dependency
         # artifacts from above.
         # This derivation is a directory you can put on a webserver.
-        inherit (pkgs) binaryen;
+        inherit (pkgs) binaryen tailwindcss;
         my-app = craneLib.mkCargoDerivation (commonArgs // {
           inherit cargoArtifacts;
 
@@ -95,6 +95,7 @@
               $HOME/Library/Application\ Support
 
             ln -s ${binaryen} $HOME/.local/share/dioxus/binaryen
+            ln -s ${tailwindcss} $HOME/.local/share/dioxus/tailwindcss
           '';
 
           buildPhaseCargoCommand = ''
@@ -103,6 +104,7 @@
               profileArgs="--release"
             fi
 
+            tailwindcss -i ./input.css -o ./public/tailwind.css
             dx build $profileArgs
           '';
 
@@ -117,6 +119,8 @@
             pkgs.dioxus-cli
             pkgs.wasm-bindgen-cli
             binaryen
+            pkgs.nodejs
+            tailwindcss
           ];
         });
       in

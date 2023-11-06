@@ -8,7 +8,7 @@ name = "treman-rs"
 default_platform = "web"
 
 # `build` & `serve` dist path
-out_dir = "pages"
+out_dir = "dist"
 
 # resource (public) file folder
 asset_dir = "public"

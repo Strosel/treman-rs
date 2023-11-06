@@ -107,7 +107,7 @@
           '';
 
           installPhaseCommand = ''
-            cp -r dist $out
+            cp -r pages $out
           '';
 
           # Installing artifacts on a distributable dir does not make much sense

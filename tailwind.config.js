@@ -9,12 +9,18 @@ module.exports = {
     ],
     theme: {
         fontSize: {
-            sm: '7vmin',
+            xs: '4vmin',
+            sm: '6vmin',
             base: '10vmin',
-            lg: '25vmin',
-            xl: '40vmin',
+            lg: '14vmin',
+            xl: '25vmin',
+            '2xl': '37vmin',
         },
         extend: {
+            colors: {
+                primary: '#4050b5',
+                secondary: '#3bb371',
+            },
             fontFamily: {
                 dice: ["dice", "monospace"],
             }

@@ -1,4 +1,9 @@
+use crate::{rules::*, scenes::*};
 use dioxus::prelude::*;
+use tinyrand::{Seeded, StdRand};
+
+mod rules;
+mod scenes;
 
 fn main() {
     // init debug tool for WebAssembly
@@ -9,20 +14,12 @@ fn main() {
 }
 
 fn app(cx: Scope) -> Element {
-    //TODO get dice state
-    let d = (5,6);
+    //Use js_sys::Math::random to seed tinyrand which has better api
+    use_shared_state_provider(cx, || {
+        StdRand::seed((js_sys::Math::random() * u16::MAX as f64) as u64)
+    });
+    use_shared_state_provider(cx, || Rule::BASE.to_vec());
     render! {
-        div {
-            class: "flex justify-center items-center text-center",
-            div {
-                class: "flex flex-col p-2 w-[100vmin] h-screen",
-                h1 { class: "dice text-center", "{d.0}{d.1}"}
-                p { class: "grow", "rules" }
-                button { 
-                    class: "bg-indigo-500 rounded-md box-border w-full text-white",
-                    "Rulla" 
-                }
-            }
-        }
+        Help{}
     }
 }

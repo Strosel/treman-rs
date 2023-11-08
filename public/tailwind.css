@@ -827,7 +827,7 @@ p, ul {
 
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(128 0 128 / var(--tw-bg-opacity));
+  background-color: rgb(255 192 203 / var(--tw-bg-opacity));
 }
 
 .bg-secondary {

@@ -18,7 +18,7 @@ module.exports = {
         },
         extend: {
             colors: {
-                primary: 'purple',
+                primary: 'pink',
                 secondary: '#3bb371',
             },
             fontFamily: {

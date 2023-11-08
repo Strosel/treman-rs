@@ -617,13 +617,6 @@ p, ul {
   }
 }
 
-@media not (display-mode: standalone) {
-  #update{
-    /*TODO extra js to show/hide this. Install/Update/None-enum? */
-    display: none;
-  }
-}
-
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -827,7 +820,7 @@ p, ul {
 
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 192 203 / var(--tw-bg-opacity));
+  background-color: rgb(255 105 180 / var(--tw-bg-opacity));
 }
 
 .bg-secondary {

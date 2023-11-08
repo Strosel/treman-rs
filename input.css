@@ -100,10 +100,4 @@
             display: none;
         }
     }
-
-    @media not (display-mode: standalone) {
-        #update{ /*TODO extra js to show/hide this. Install/Update/None-enum? */
-            display: none;
-        }
-    }
 }

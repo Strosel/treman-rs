@@ -16,12 +16,6 @@ fn main() {
     dioxus_web::launch(app);
 }
 
-enum UpdateStatus {
-    NotInstalled,
-    HasUpdate,
-    Latest,
-}
-
 fn app(cx: Scope) -> Element {
     //Use js_sys::Math::random to seed tinyrand which has better api
     use_shared_state_provider(cx, || {
@@ -29,7 +23,6 @@ fn app(cx: Scope) -> Element {
     });
     use_shared_state_provider(cx, || Rule::BASE.to_vec());
     use_shared_state_provider(cx, Scene::default);
-    use_shared_state_provider(cx, || UpdateStatus::HasUpdate);
 
     match *use_shared_state::<Scene>(cx).unwrap().read() {
         Scene::Game => render! { Game { } },

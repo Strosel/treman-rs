@@ -76,13 +76,15 @@ pub fn Game(cx: Scope) -> Element {
     let dice = use_state(cx, || (0, 0));
     let animate = use_state(cx, || false);
 
-    let update = true;
+    let update = use_state(cx, || false);
 
     render! {
         div {
             class: "flex flex-col gap-4 p-4 w-[100vmin] h-screen",
             div {
                 class: "flex flex-row-reverse h-[4vh] w-100 justify-between items-center",
+                onclick: move |_| update.set(!update),
+
                 Link{
                     to: Scene::Help,
                     class: "w-6 h-6",

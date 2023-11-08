@@ -611,6 +611,8 @@ p, ul {
   background-attachment: local, local, scroll, scroll;
 }
 
+/*FIXME Doesnt work like i thought, maybe test with content + :before :after */
+
 @media (display-mode: standalone) {
   #install {
     display: none;
@@ -827,7 +829,7 @@ p, ul {
 
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 0 / var(--tw-bg-opacity));
+  background-color: rgb(255 165 0 / var(--tw-bg-opacity));
 }
 
 .bg-secondary {

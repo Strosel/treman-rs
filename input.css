@@ -95,4 +95,15 @@
         background-attachment: local, local, scroll, scroll;
     }
 
+    @media (display-mode: standalone) {
+        #install {
+            display: none;
+        }
+    }
+
+    @media not (display-mode: standalone) {
+        #update{ /*TODO extra js to show/hide this. Install/Update/None-enum? */
+            display: none;
+        }
+    }
 }

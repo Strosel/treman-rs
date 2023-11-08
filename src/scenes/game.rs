@@ -76,13 +76,30 @@ pub fn Game(cx: Scope) -> Element {
     let dice = use_state(cx, || (0, 0));
     let animate = use_state(cx, || false);
 
+    let update = true;
+
     render! {
         div {
             class: "flex flex-col gap-4 p-4 w-[100vmin] h-screen",
-            Link{
-                to: Scene::Help,
-                class: "w-6 h-6 self-end",
-                QuestionMarkIcon { }
+            div {
+                class: "flex flex-row-reverse h-[4vh] w-100 justify-between items-center",
+                Link{
+                    to: Scene::Help,
+                    class: "w-6 h-6",
+                    QuestionMarkIcon { }
+                }
+
+                button {
+                    id: if !update {"install"} else {"update"},
+                    class: "bg-secondary rounded-md box-border pl-3 pr-2 h-[4vh] min-h-[4vh] text-sm inline-flex items-center gap-2",
+                    if !update {"Installera"} else {"Uppdatera"},
+                    span{
+                        class: "w-6 h-6 stroke-white",
+                        DownloadIcon { }
+                    }
+                }
+
+                span { /* empty span makes the install/update button centered */ }
             }
 
             if **animate {

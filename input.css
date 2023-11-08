@@ -95,7 +95,6 @@
         background-attachment: local, local, scroll, scroll;
     }
 
-    /*FIXME Doesnt work like i thought, maybe test with content + :before :after */
     @media (display-mode: standalone) {
         #install {
             display: none;

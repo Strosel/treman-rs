@@ -1,6 +1,7 @@
 use super::{AnimateDice, Scene};
 use crate::components::*;
 use crate::rules::*;
+use crate::UpdateStatus;
 use dioxus::prelude::*;
 use tinyrand::{RandRange, StdRand};
 
@@ -76,14 +77,13 @@ pub fn Game(cx: Scope) -> Element {
     let dice = use_state(cx, || (0, 0));
     let animate = use_state(cx, || false);
 
-    let update = use_state(cx, || false);
+    let update = use_shared_state::<UpdateStatus>(cx);
 
     render! {
         div {
             class: "flex flex-col gap-4 p-4 w-[100vmin] h-screen",
             div {
                 class: "flex flex-row-reverse h-[4vh] w-100 justify-between items-center",
-                onclick: move |_| update.set(!update),
 
                 Link{
                     to: Scene::Help,
@@ -92,9 +92,13 @@ pub fn Game(cx: Scope) -> Element {
                 }
 
                 button {
-                    id: if !update {"install"} else {"update"},
+                    id: "update",
                     class: "bg-secondary rounded-md box-border pl-3 pr-2 h-[4vh] min-h-[4vh] text-sm inline-flex items-center gap-2",
-                    if !update {"Installera"} else {"Uppdatera"},
+                    onclick: move |_| {
+                        let js = use_eval(cx);
+                        js("window.location.reload()").unwrap();
+                    },
+                    "Uppdatera"
                     span{
                         class: "w-6 h-6 stroke-white",
                         DownloadIcon { }

@@ -11,19 +11,19 @@ permissions:
 
 jobs:
     build-apk:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: PWA to APK
-        uses: ./.github/bubblewrap_action
-        with:
-          project-root-folder: 'bubblewrap'
-      - name: Draft Release
-        uses: softprops/action-gh-release@v1
-        with:
-          # note you'll typically need to create a personal access token
-          # with permissions to create releases in the other repo
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
-          draft: true
-          files: 'bubblewrap/*.apk'
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: PWA to APK
+          uses: ./.github/bubblewrap_action
+          with:
+            project-root-folder: 'bubblewrap'
+        - name: Draft Release
+          uses: softprops/action-gh-release@v1
+          with:
+            # note you'll typically need to create a personal access token
+            # with permissions to create releases in the other repo
+            token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+            draft: true
+            files: 'bubblewrap/*.apk'
 

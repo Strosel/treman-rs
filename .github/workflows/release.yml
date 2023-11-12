@@ -1,4 +1,4 @@
-name: Update github pages wasm
+name: Build PWA to pages
 on:
   push: 
     tags:
@@ -70,22 +70,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-
-  build-apk:
-    needs: deploy-pwa
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: PWA to APK
-        uses: ./.github/bubblewrap_action
-        with:
-          project-root-folder: 'bubblewrap'
-      - name: Draft Release
-        uses: softprops/action-gh-release@v1
-        with:
-          # note you'll typically need to create a personal access token
-          # with permissions to create releases in the other repo
-          token: ${{ secrets.GITHUB_TOKEN }}
-          draft: true
-          files: 'bubblewrap/*.apk'
-

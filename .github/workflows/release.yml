@@ -72,6 +72,7 @@ jobs:
         uses: actions/deploy-pages@v2
 
   build-apk:
+    needs: deploy-pwa
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: PWA to APK
-        uses: ./.github/actions/bubblewrap_action
+        uses: ./.github/bubblewrap_action
         with:
           project-root-folder: 'bubblewrap'
       - name: Draft Release

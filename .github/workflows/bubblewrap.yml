@@ -1,4 +1,4 @@
-name: Update github pages wasm
+name: Temporary action
 on:
   - push
   - workflow_dispatch

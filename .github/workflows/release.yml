@@ -23,7 +23,7 @@ defaults:
     shell: bash
 
 jobs:
-  build:
+  build-pwa:
     name: Wasm build/deploy action
     runs-on: ubuntu-latest
     steps:
@@ -54,8 +54,8 @@ jobs:
         with:
           path: ./pages
 
-  deploy:
-    needs: build
+  deploy-pwa:
+    needs: build-pwa
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
@@ -70,3 +70,21 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: PWA to APK
+        uses: sharadcodes/pwa-to-apk-action@v1.0.0
+        with:
+          project-root-folder: 'bubblewrap'
+      - name: Draft Release
+        uses: softprops/action-gh-release@v1
+        with:
+          # note you'll typically need to create a personal access token
+          # with permissions to create releases in the other repo
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          draft: true
+          files: 'bubblewrap/*.apk'
+

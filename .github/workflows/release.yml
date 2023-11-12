@@ -76,18 +76,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        #- name: PWA to APK
-        #  uses: sharadcodes/pwa-to-apk-action@v1.0.0
-        #  with:
-        #    project-root-folder: 'bubblewrap'
-      - uses: addnab/docker-run-action@v3
-        with:
-          # ghcr.io/googlechromelabs/bubblewrap:latest 
-          registry: ghcr.io
-          username: googlechromelabs
-          image: bubblewrap:latest
-          run: |-
-            cd bubblewrap && build --skipSigning 
+      - name: PWA to APK
+          uses: ./.github/bubblewrap_action
+          with:
+            project-root-folder: 'bubblewrap'
       - name: Draft Release
         uses: softprops/action-gh-release@v1
         with:
